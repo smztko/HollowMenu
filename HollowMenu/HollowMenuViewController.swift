@@ -57,8 +57,8 @@ public class HollowMenuViewController: UIViewController {
         }
     }
     
-    private func isPad() -> Bool { return UI_USER_INTERFACE_IDIOM() == .Pad }
-    private func isPhone() -> Bool { return UI_USER_INTERFACE_IDIOM() == .Phone }
+    private func isPad() -> Bool { return UIDevice.currentDevice().userInterfaceIdiom == .Pad }
+    private func isPhone() -> Bool { return UIDevice.currentDevice().userInterfaceIdiom == .Phone }
     
     public var sections: [Section]? {
         didSet {
