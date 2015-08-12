@@ -12,7 +12,18 @@
 		D946F0601B7BA1DD00EABCD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D946F05E1B7BA1DD00EABCD3 /* Main.storyboard */; };
 		D946F0621B7BA1DD00EABCD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D946F0611B7BA1DD00EABCD3 /* Images.xcassets */; };
 		D946F0651B7BA1DD00EABCD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D946F0631B7BA1DD00EABCD3 /* LaunchScreen.xib */; };
+		D946F0801B7BA2CF00EABCD3 /* HollowMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D946F07F1B7BA26E00EABCD3 /* HollowMenu.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D946F07E1B7BA26E00EABCD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D946F07A1B7BA26D00EABCD3 /* HollowMenu.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D95723DB1B73A2A90078BB46;
+			remoteInfo = HollowMenu;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D946F0551B7BA1DD00EABCD3 /* HollowMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HollowMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +33,7 @@
 		D946F05F1B7BA1DD00EABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D946F0611B7BA1DD00EABCD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D946F0641B7BA1DD00EABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D946F07A1B7BA26D00EABCD3 /* HollowMenu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HollowMenu.xcodeproj; path = ../HollowMenu.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D946F0801B7BA2CF00EABCD3 /* HollowMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +51,7 @@
 		D946F04C1B7BA1DD00EABCD3 = {
 			isa = PBXGroup;
 			children = (
+				D946F07A1B7BA26D00EABCD3 /* HollowMenu.xcodeproj */,
 				D946F0571B7BA1DD00EABCD3 /* HollowMenuDemo */,
 				D946F0561B7BA1DD00EABCD3 /* Products */,
 			);
@@ -70,6 +84,14 @@
 				D946F0591B7BA1DD00EABCD3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D946F07B1B7BA26D00EABCD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D946F07F1B7BA26E00EABCD3 /* HollowMenu.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,12 +139,28 @@
 			mainGroup = D946F04C1B7BA1DD00EABCD3;
 			productRefGroup = D946F0561B7BA1DD00EABCD3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D946F07B1B7BA26D00EABCD3 /* Products */;
+					ProjectRef = D946F07A1B7BA26D00EABCD3 /* HollowMenu.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D946F0541B7BA1DD00EABCD3 /* HollowMenuDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D946F07F1B7BA26E00EABCD3 /* HollowMenu.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HollowMenu.framework;
+			remoteRef = D946F07E1B7BA26E00EABCD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D946F0531B7BA1DD00EABCD3 /* Resources */ = {
@@ -205,7 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -244,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
