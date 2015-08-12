@@ -8,28 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D95723E11B73A2A90078BB46 /* HollowMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = D95723E01B73A2A90078BB46 /* HollowMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D95723E71B73A2A90078BB46 /* HollowMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95723DB1B73A2A90078BB46 /* HollowMenu.framework */; };
-		D95723EE1B73A2A90078BB46 /* HollowMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95723ED1B73A2A90078BB46 /* HollowMenuTests.swift */; };
 		D95723F81B73A3090078BB46 /* HollowMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95723F71B73A3090078BB46 /* HollowMenuViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D95723E81B73A2A90078BB46 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D95723D21B73A2A90078BB46 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D95723DA1B73A2A90078BB46;
-			remoteInfo = HollowMenu;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D95723DB1B73A2A90078BB46 /* HollowMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HollowMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95723DF1B73A2A90078BB46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D95723E01B73A2A90078BB46 /* HollowMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HollowMenu.h; sourceTree = "<group>"; };
-		D95723E61B73A2A90078BB46 /* HollowMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HollowMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D95723EC1B73A2A90078BB46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D95723ED1B73A2A90078BB46 /* HollowMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowMenuTests.swift; sourceTree = "<group>"; };
 		D95723F71B73A3090078BB46 /* HollowMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HollowMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,14 +26,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D95723E31B73A2A90078BB46 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D95723E71B73A2A90078BB46 /* HollowMenu.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -56,7 +33,6 @@
 			isa = PBXGroup;
 			children = (
 				D95723DD1B73A2A90078BB46 /* HollowMenu */,
-				D95723EA1B73A2A90078BB46 /* HollowMenuTests */,
 				D95723DC1B73A2A90078BB46 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				D95723DB1B73A2A90078BB46 /* HollowMenu.framework */,
-				D95723E61B73A2A90078BB46 /* HollowMenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,23 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				D95723DF1B73A2A90078BB46 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D95723EA1B73A2A90078BB46 /* HollowMenuTests */ = {
-			isa = PBXGroup;
-			children = (
-				D95723ED1B73A2A90078BB46 /* HollowMenuTests.swift */,
-				D95723EB1B73A2A90078BB46 /* Supporting Files */,
-			);
-			path = HollowMenuTests;
-			sourceTree = "<group>";
-		};
-		D95723EB1B73A2A90078BB46 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D95723EC1B73A2A90078BB46 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,24 +95,6 @@
 			productReference = D95723DB1B73A2A90078BB46 /* HollowMenu.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D95723E51B73A2A90078BB46 /* HollowMenuTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D95723F41B73A2A90078BB46 /* Build configuration list for PBXNativeTarget "HollowMenuTests" */;
-			buildPhases = (
-				D95723E21B73A2A90078BB46 /* Sources */,
-				D95723E31B73A2A90078BB46 /* Frameworks */,
-				D95723E41B73A2A90078BB46 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D95723E91B73A2A90078BB46 /* PBXTargetDependency */,
-			);
-			name = HollowMenuTests;
-			productName = HollowMenuTests;
-			productReference = D95723E61B73A2A90078BB46 /* HollowMenuTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,9 +105,6 @@
 				ORGANIZATIONNAME = Pwater.org;
 				TargetAttributes = {
 					D95723DA1B73A2A90078BB46 = {
-						CreatedOnToolsVersion = 6.3.2;
-					};
-					D95723E51B73A2A90078BB46 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
@@ -185,20 +122,12 @@
 			projectRoot = "";
 			targets = (
 				D95723DA1B73A2A90078BB46 /* HollowMenu */,
-				D95723E51B73A2A90078BB46 /* HollowMenuTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D95723D91B73A2A90078BB46 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D95723E41B73A2A90078BB46 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -216,23 +145,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D95723E21B73A2A90078BB46 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D95723EE1B73A2A90078BB46 /* HollowMenuTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D95723E91B73A2A90078BB46 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D95723DA1B73A2A90078BB46 /* HollowMenu */;
-			targetProxy = D95723E81B73A2A90078BB46 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D95723EF1B73A2A90078BB46 /* Debug */ = {
@@ -358,36 +271,6 @@
 			};
 			name = Release;
 		};
-		D95723F51B73A2A90078BB46 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HollowMenuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		D95723F61B73A2A90078BB46 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HollowMenuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -405,15 +288,6 @@
 			buildConfigurations = (
 				D95723F21B73A2A90078BB46 /* Debug */,
 				D95723F31B73A2A90078BB46 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D95723F41B73A2A90078BB46 /* Build configuration list for PBXNativeTarget "HollowMenuTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D95723F51B73A2A90078BB46 /* Debug */,
-				D95723F61B73A2A90078BB46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
