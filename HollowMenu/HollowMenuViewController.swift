@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class HollowMenuViewController: UIViewController {
+open class HollowMenuViewController: UIViewController {
     
     // Menu
     private var menuVC: UIViewController?
@@ -80,7 +80,7 @@ public class HollowMenuViewController: UIViewController {
         }
     }
     
-    public var tableViewCellClass: AnyClass {
+    open var tableViewCellClass: AnyClass {
         get { return UITableViewCell.self }
     }
     
@@ -212,7 +212,7 @@ extension HollowMenuViewController: UITableViewDataSource {
         return sections?[section].menus?.count ?? 0
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellReuseIdentifier, for: indexPath)
         if let menu = sections?[indexPath.section].menus?[indexPath.row] {
             cell.textLabel?.text = menu.title
@@ -224,7 +224,7 @@ extension HollowMenuViewController: UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 extension HollowMenuViewController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectMenu(indexPath: indexPath)
         if isPhone() { hideMenuPhone() }
         tableView.deselectRow(at: indexPath, animated: true)

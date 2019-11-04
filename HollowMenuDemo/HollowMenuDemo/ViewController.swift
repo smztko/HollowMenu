@@ -17,54 +17,54 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Hollo menu view controller
-        vc = MyHollowMenuViewController(tableViewStyle: .Grouped)
+        vc = MyHollowMenuViewController(tableViewStyle: .grouped)
         vc!.title = "Hollow Demo"
-        addChildViewController(vc!)
+        addChild(vc!)
         view.addSubview(vc!.view)
         
         // Create menus
         typealias Hollow = HollowMenuViewController
-        let menuR = Hollow.Menu("Red",   { [weak vc] in vc?.contentViewController?.view.backgroundColor = UIColor.redColor() })
-        let menuG = Hollow.Menu("Green", { [weak vc] in vc?.contentViewController?.view.backgroundColor = UIColor.greenColor() })
-        let menuB = Hollow.Menu("Blue",  { [weak vc] in vc?.contentViewController?.view.backgroundColor = UIColor.blueColor() })
+        let menuR = Hollow.Menu("Red",   { [weak vc] in vc?.contentViewController?.view.backgroundColor = UIColor.red })
+        let menuG = Hollow.Menu("Green", { [weak vc] in vc?.contentViewController?.view.backgroundColor = UIColor.green })
+        let menuB = Hollow.Menu("Blue",  { [weak vc] in vc?.contentViewController?.view.backgroundColor = UIColor.blue })
         
         let section = Hollow.Section("RGB Colors", [menuR, menuG, menuB])
         
         vc!.sections = [section]
         
         // Do first process
-        vc!.selectMenu(NSIndexPath(forRow: 0, inSection: 0))
+        vc!.selectMenu(indexPath: IndexPath(row: 0, section: 0))
     }
 }
 
 // Inherit HollowMenuViewController to customize
 class MyHollowMenuViewController: HollowMenuViewController {
     
-    override init(tableViewStyle: UITableViewStyle) {
+    override init(tableViewStyle: UITableView.Style) {
         super.init(tableViewStyle: tableViewStyle)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let cell = cell as? MyTableViewCell {
             cell.detailTextLabel?.text = "detail"
         }
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
     }
     
     class MyTableViewCell: UITableViewCell {
-        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-            super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         }
-        required init(coder aDecoder: NSCoder) {
+        required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         }
     }
