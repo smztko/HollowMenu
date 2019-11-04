@@ -24,18 +24,18 @@ public class HollowMenuViewController: UIViewController {
     
     // Menu as table view
     private let tableViewCellReuseIdentifier = "4a2662aa-fae2-443d-bada-6cf45a5bf5d8"
-    private var tableViewStyle: UITableViewStyle?
+    private var tableViewStyle: UITableView.Style?
     private var tableView: UITableView?
     
     // Initializer
-    public init(tableViewStyle: UITableViewStyle) {
+    public init(tableViewStyle: UITableView.Style) {
         super.init(nibName: nil, bundle: nil)
         self.tableViewStyle = tableViewStyle
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.tableViewStyle = .Grouped
+        self.tableViewStyle = .grouped
     }
     
     override public func viewDidLoad() {
@@ -57,8 +57,8 @@ public class HollowMenuViewController: UIViewController {
         }
     }
     
-    private func isPad() -> Bool { return UIDevice.currentDevice().userInterfaceIdiom == .Pad }
-    private func isPhone() -> Bool { return UIDevice.currentDevice().userInterfaceIdiom == .Phone }
+    private func isPad() -> Bool { return UIDevice.current.userInterfaceIdiom == .pad }
+    private func isPhone() -> Bool { return UIDevice.current.userInterfaceIdiom == .phone }
     
     public var sections: [Section]? {
         didSet {
@@ -95,7 +95,7 @@ public class HollowMenuViewController: UIViewController {
         }
     }
     
-    public func selectMenu(indexPath: NSIndexPath) {
+    public func selectMenu(indexPath: IndexPath) {
         if let menu = sections?[indexPath.section].menus?[indexPath.row] {
             menu.process?()
             contentVC?.title = menu.title
@@ -108,12 +108,12 @@ public class HollowMenuViewController: UIViewController {
 extension HollowMenuViewController {
     private func setupPad() {
         let vc = UISplitViewController()
-        if let menuNC = menuNC, contentNC = contentNC {
+        if let menuNC = menuNC, let contentNC = contentNC {
             vc.viewControllers = [menuNC, contentNC]
         }
         vc.delegate = self
         
-        addChildViewController(vc)
+        addChild(vc)
         view.addSubview(vc.view)
         self.padViewController = vc
     }
@@ -121,18 +121,18 @@ extension HollowMenuViewController {
 
 // MARK: UISplitViewControllerDelegate
 extension HollowMenuViewController: UISplitViewControllerDelegate {
-    public func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
+    public func splitViewController(_ svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool {
         switch orientation {
-        case .LandscapeLeft, .LandscapeRight:
+        case .landscapeLeft, .landscapeRight:
             return false
-        case .Portrait, .PortraitUpsideDown:
+        case .portrait, .portraitUpsideDown:
             return true
-        case .Unknown:
+        case .unknown:
             return true
         }
     }
     
-    public func splitViewController(svc: UISplitViewController, willHideViewController aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController) {
+    public func splitViewController(_ svc: UISplitViewController, willHide aViewController: UIViewController, with barButtonItem: UIBarButtonItem, for pc: UIPopoverController) {
         barButtonItem.title = menuTitle
         contentVC?.navigationItem.leftBarButtonItem = barButtonItem
     }
@@ -141,7 +141,7 @@ extension HollowMenuViewController: UISplitViewControllerDelegate {
         contentVC?.navigationItem.leftBarButtonItem = nil
     }
     
-    private func setMenuTitlePad(title: String) {
+    private func setMenuTitlePad(_ title: String) {
         contentVC?.navigationItem.leftBarButtonItem?.title = title
     }
 }
@@ -151,30 +151,30 @@ extension HollowMenuViewController: UISplitViewControllerDelegate {
 extension HollowMenuViewController {
     private func setupPhone() {
         // Menu
-        menuVC?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "hideMenuPhone")
+        menuVC?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(hideMenuPhone))
         menuVC?.navigationItem.title = menuTitle
         
         // Content
-        contentVC?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: menuTitle, style: .Plain, target: self, action: "showMenuPhone")
+        contentVC?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: menuTitle, style: .plain, target: self, action: #selector(showMenuPhone))
         if let nc = contentNC {
-            addChildViewController(nc)
+            addChild(nc)
             view.addSubview(nc.view)
         }
     }
     
-    func showMenuPhone() {
+    @objc func showMenuPhone() {
         if let vc = menuNC {
-            contentVC?.presentViewController(vc, animated: true, completion: nil)
+            contentVC?.present(vc, animated: true, completion: nil)
         }
     }
     
-    func hideMenuPhone() {
+    @objc func hideMenuPhone() {
         if let vc = menuNC {
-            vc.dismissViewControllerAnimated(true, completion: nil)
+            vc.dismiss(animated: true, completion: nil)
         }
     }
     
-    private func setMenuTitlePhone(title: String) {
+    private func setMenuTitlePhone(_ title: String) {
         menuVC?.navigationItem.title = title
         contentVC?.navigationItem.leftBarButtonItem?.title = title
     }
@@ -187,10 +187,10 @@ extension HollowMenuViewController {
         let vc = UIViewController()
         if let style = self.tableViewStyle {
             let view = UITableView(frame: self.view.bounds, style: style)
-            view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             view.dataSource = self
             view.delegate = self
-            view.registerClass(tableViewCellClass, forCellReuseIdentifier: tableViewCellReuseIdentifier)
+            view.register(tableViewCellClass, forCellReuseIdentifier: tableViewCellReuseIdentifier)
             vc.view.addSubview(view)
         }
         if isPad() { vc.title = self.title }
@@ -204,16 +204,16 @@ extension HollowMenuViewController: UITableViewDataSource {
         return sections?.count ?? 0
     }
     
-    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections?[section].title
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections?[section].menus?.count ?? 0
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(tableViewCellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellReuseIdentifier, for: indexPath)
         if let menu = sections?[indexPath.section].menus?[indexPath.row] {
             cell.textLabel?.text = menu.title
             cell.imageView?.image = menu.image
@@ -224,10 +224,10 @@ extension HollowMenuViewController: UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 extension HollowMenuViewController: UITableViewDelegate {
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectMenu(indexPath)
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectMenu(indexPath: indexPath)
         if isPhone() { hideMenuPhone() }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -243,8 +243,8 @@ extension HollowMenuViewController {
 // MARK: Section
 extension HollowMenuViewController {
     public struct Section {
-        private let title: String?
-        private var menus: [Menu]?
+        fileprivate let title: String?
+        fileprivate(set) var menus: [Menu]?
         
         public init(_ title: String?, _ menus: [Menu]?) {
             self.title = title
@@ -259,9 +259,9 @@ extension HollowMenuViewController {
     public struct Menu {
         public typealias Process = () -> Void
         
-        private let title: String?
-        private let process: Process?
-        private var image: UIImage?
+        fileprivate let title: String?
+        fileprivate let process: Process?
+        fileprivate(set) var image: UIImage?
         
         public init(_ title: String?, _ process: Process?) {
             self.title = title
